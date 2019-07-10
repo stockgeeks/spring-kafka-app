@@ -1,9 +1,9 @@
 package io.stockgeeks.springkafka.springkafkaapp;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
+@Service
 public class SimpleConsumer {
   @KafkaListener(id = "simple-consumer", topics = "simple-message")
   public void consumeMessage(String message) {

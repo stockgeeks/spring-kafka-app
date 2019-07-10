@@ -33,6 +33,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_CREATE_TOPICS: "simple-message:1:1"
       KAFKA_LOG4J_LOGGERS: >- 
         kafka.controller=INFO,
         kafka.producer.async.DefaultEventHandler=INFO,
