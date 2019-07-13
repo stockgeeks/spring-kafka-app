@@ -15,9 +15,15 @@ services:
     container_name: kafka
     image: wurstmeister/kafka:2.12-2.2.1
     environment:
-      ## the >- used below infers a value which is a string and properly 
+
+      ## the >- used below infers a value which is a string and properly
       ## ignore the multiple lines resulting in one long string: 
       ## https://yaml.org/spec/1.2/spec.html
+
+      ## You need to make sure to specify your hostname in a file in this
+      ## same dir as this compose file called `.env`(uncomment the line)
+      ## or to register in your `/etc/hosts` kafka as your loopback interface
+      ## address together with hostname and 127.0.0.1
       KAFKA_ADVERTISED_LISTENERS: >- 
         LISTENER_DOCKER_INTERNAL://kafka:19092, 
         LISTENER_DOCKER_EXTERNAL://${DOCKER_HOST_IP:-kafka}:9092

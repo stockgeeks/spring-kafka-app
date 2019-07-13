@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class MessagesController {
+public class MessageApi {
 
   private final SimpleProducer simpleProducer;
 
-  public MessagesController(SimpleProducer simpleProducer) {
+  public MessageApi(SimpleProducer simpleProducer) {
     this.simpleProducer = simpleProducer;
   }
 
   @PostMapping("/message")
-  public ResponseEntity<String> message(@RequestBody Message message) {
-    simpleProducer.send(message.getMessage());
-    return ResponseEntity.ok("Message sent");
+  public ResponseEntity<String> message(@RequestBody String message) {
+    simpleProducer.send(message);
+    return ResponseEntity.ok("Message received: " + message);
   }
 }
